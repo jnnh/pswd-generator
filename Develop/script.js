@@ -17,19 +17,22 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-/*var passwordCriteria = function(){
+var passwordCriteria = function(){
   var promptLength = prompt("How many characters would you like in your password?");
+  parseInt(promptLength);
     if (promptLength < 8 || promptLength > 128 || !promptLength){
       alert("Password Length must be between 8 and 128 characters. Please try again.");
-      passwordCriteria ();
+      passwordCriteria();
     }
-    else {
-      return promptLength;
+  var confirmLowerCase = confirm("Would you like lowercase characters?");
+    if (confirmLowerCase){
+      return confirmLowerCase
     }
-  var confirmLowerCase = confirm("Would you like lowercase characters?")
-}*/
+}
+//console.log(promptLength);
+//console.log(confirmLowerCase);
 
-
+// Function to Generate Arrays using ASCII Character Table
 var arrayFromLowToHigh = function(low,high){
   var array = []
   for (var i=low; i <= high; i++) {
@@ -38,11 +41,18 @@ var arrayFromLowToHigh = function(low,high){
   return array
 }
 
+// Variable Arrays
 var lowerCaseOptions = arrayFromLowToHigh(97,122);
-console.log(lowerCaseOptions);
 var upperCaseOptions = arrayFromLowToHigh(65,90);
-console.log(upperCaseOptions);
 var numberOptions = arrayFromLowToHigh(48,57);
-console.log(numberOptions);
 var specialCharacterOptions = arrayFromLowToHigh(33,47).concat(arrayFromLowToHigh(58,64)).concat(arrayFromLowToHigh(91,96)).concat(arrayFromLowToHigh(123,126));
-console.log(specialCharacterOptions);
+
+//Function to 
+
+
+//Create a Concated Array for Password based on Password Criteria
+var passwordArray = function (lowerCaseOptions, upperCaseOptions, numberOptions, specialCharacterOptions){
+  confirmCriteria ()
+}
+
+passwordCriteria()
