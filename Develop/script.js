@@ -18,19 +18,17 @@ generateBtn.addEventListener("click", writePassword);
 
 
 var passwordCriteria = function(){
+  debugger;
   var promptLength = prompt("How many characters would you like in your password?");
-  parseInt(promptLength);
+  promptLength= parseInt(promptLength);
     if (promptLength < 8 || promptLength > 128 || !promptLength){
       alert("Password Length must be between 8 and 128 characters. Please try again.");
       passwordCriteria();
     }
-  var confirmLowerCase = confirm("Would you like lowercase characters?");
-    if (confirmLowerCase){
-      return confirmLowerCase
+    else{
+      return promptLength;
     }
-}
-//console.log(promptLength);
-//console.log(confirmLowerCase);
+};
 
 // Function to Generate Arrays using ASCII Character Table
 var arrayFromLowToHigh = function(low,high){
@@ -56,3 +54,6 @@ var passwordArray = function (lowerCaseOptions, upperCaseOptions, numberOptions,
 }
 
 passwordCriteria()
+
+console.log(promptLength);
+//console.log(confirmLowerCase);
