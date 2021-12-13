@@ -9,8 +9,6 @@ var arrayFromLowToHigh = function(low,high){
   }
   return array;
 };
-var pswdObject = {};
-
 
 // Arrays of ASCII Characters
 var lowerCaseOptions = arrayFromLowToHigh(97,122);
@@ -66,21 +64,21 @@ var passwordOptions = function (options){
 var generatePassword = function (){
   var pswdObject = passwordCriteria ();
   var options = passwordOptions (pswdObject);
-  var passwordArray = [];
+  var password = [];
   for (var i=0; i< pswdObject.length; i++) {
     var character= options[Math.floor(Math.random() * options.length)];
-    passwordArray.push(String.fromCharCode(character));
+    password.push(String.fromCharCode(character));
   }
   console.log(options);
-  console.log(passwordArray);
+  console.log(password);
 };
 // Write password to the #password input
-var writePassword = function() {
+/*var writePassword = function() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-};
+};*/
 
 //Add event listener to generate button
 generateBtn.addEventListener("click", generatePassword);
