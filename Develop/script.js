@@ -66,13 +66,13 @@ var passwordOptions = function (options){
 var generatePassword = function (){
   var pswdObject = passwordCriteria ();
   var options = passwordOptions (pswdObject);
-  var password = [];
+  var passwordArray = [];
   for (var i=0; i< pswdObject.length; i++) {
     var character= options[Math.floor(Math.random() * options.length)];
-    password.push(String.fromCharCode(character));
+    passwordArray.push(String.fromCharCode(character));
   }
   console.log(options);
-  console.log(password);
+  console.log(passwordArray);
 };
 // Write password to the #password input
 var writePassword = function() {
@@ -83,7 +83,7 @@ var writePassword = function() {
 };
 
 //Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
 
 //writePassword();
 
