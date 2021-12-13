@@ -29,16 +29,19 @@ var passwordCriteria = function () {
     var confirmUpperCase = confirm("Would you like to include upper case characters?");
     var confirmNumbers = confirm("Would you like to include numbers?");
     var confirmSpecial = confirm("Would you like to include special characters?");
+    while (!confirmLowerCase && !confirmUpperCase && !confirmNumbers && !confirmSpecial) {
+      alert("you need to choose at least one character type.");
+      confirmLowerCase = confirm("Would you like to include lower case characters?");
+      confirmUpperCase = confirm("Would you like to include upper case characters?");
+      confirmNumbers = confirm("Would you like to include numbers?");
+      confirmSpecial = confirm("Would you like to include special characters?");
+    }
     var pswdObject = {
       length: promptLength,
       lowercase: confirmLowerCase,
       uppercase: confirmUpperCase,
       numbers: confirmNumbers,
       special: confirmSpecial
-    }
-    if (!confirmLowerCase && !confirmUpperCase && !confirmNumbers && !confirmSpecial) {
-      alert("you need to choose at least one character type.");
-      passwordCriteria();
     }
     return pswdObject;
 };
