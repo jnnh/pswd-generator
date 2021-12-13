@@ -23,7 +23,7 @@ var passwordCriteria = function(){
   var promptLength = prompt("How many characters would you like in your password?");
   var promptLength= parseInt(promptLength);
     if (promptLength < 8 || promptLength > 128 || !promptLength){
-      alert("Password Length must be between 8 and 128 characters. Please try again.");
+      alert("Password Length must be a number between 8 and 128 characters. Please try again.");
       passwordCriteria();
     }
   var confirmLowerCase = confirm("Would you like to include lower case characters?");
@@ -45,26 +45,54 @@ var passwordCriteria = function(){
 };
 
 //Create a Concated Array for Password based on Password Criteria
-var passwordOptions = function (){
+var passwordOptions = function (options){
   var compiledOptions = [];
-  if (confirmLowerCase){
+  if (options.lowercase){
     compiledOptions = compiledOptions.concat(lowerCaseOptions);
   }
-  if(confirmUpperCase){
+  if(options.uppercase){
     compiledOptions = compiledOptions.concat(upperCaseOptions);
   }
-  if (confirmNumbers){
+  if (options.numbers){
     compiledOptions = compiledOptions.concat(numberOptions);
   }
-  if (specialOptions){
+  if (options.special){
     compiledOptions = compiledOptions.concat(specialOptions);
   }
   return compiledOptions;
 };
 
-//Add event listener to generate button
-generateBtn.addEventListener("click", passwordCriteria);
+//To generate password
+var generatePassword = function (){
+  var pswdObject = passwordCriteria ();
+  var options = passwordOptions (pswdObject);
+  var password = [];
+  for (var i=0; i< pswdObject.length; i++) {
+    var character= options[Math.floor(Math.random() * options.length)];
+    password.push(String.fromCharCode(character));
+  }
+  console.log(options);
+  console.log(password);
+};
+// Write password to the #password input
+var writePassword = function() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-console.log(pswdObject);
-console.log(pswdObject.lowercase);
-console.log(pswdObject.numbers);
+  passwordText.value = password;
+};
+
+//Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+//writePassword();
+
+
+
+/*function(){
+  var pswdObject = passwordCriteria ()
+  console.dir(pswdObject);
+  console.log(pswdObject.lowercase);
+  console.log(pswdObject.numbers);
+});*/
+
