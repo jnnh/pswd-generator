@@ -64,33 +64,24 @@ var passwordOptions = function (options){
 var generatePassword = function (){
   var pswdObject = passwordCriteria ();
   var options = passwordOptions (pswdObject);
-  var password = [];
+  var passwordArray = [];
   for (var i=0; i< pswdObject.length; i++) {
     var character= options[Math.floor(Math.random() * options.length)];
-    password.push(String.fromCharCode(character));
+    passwordArray.push(String.fromCharCode(character));
   }
   console.log(options);
-  console.log(password);
+  console.log(passwordArray);
+  var password= passwordArray.join('');
+  writePassword(password);
 };
 // Write password to the #password input
-/*var writePassword = function() {
-  var password = generatePassword();
+var writePassword = function(password) {
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-};*/
+};
 
 //Add event listener to generate button
 generateBtn.addEventListener("click", generatePassword);
 
-//writePassword();
 
-
-
-/*function(){
-  var pswdObject = passwordCriteria ()
-  console.dir(pswdObject);
-  console.log(pswdObject.lowercase);
-  console.log(pswdObject.numbers);
-});*/
 
