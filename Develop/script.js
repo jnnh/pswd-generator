@@ -21,7 +21,7 @@ var passwordCriteria = function(){
   var promptLength = prompt("How many characters would you like in your password?");
   var promptLength= parseInt(promptLength);
     if (promptLength < 8 || promptLength > 128 || !promptLength){
-      alert("Password Length must be a number between 8 and 128 characters. Please try again.");
+      alert("Password length must be a number between 8 and 128. Please try again.");
       passwordCriteria();
     }
   var confirmLowerCase = confirm("Would you like to include lower case characters?");
@@ -69,8 +69,6 @@ var generatePassword = function (){
     var character= options[Math.floor(Math.random() * options.length)];
     passwordArray.push(String.fromCharCode(character));
   }
-  console.log(options);
-  console.log(passwordArray);
   var password= passwordArray.join('');
   writePassword(password);
 };
