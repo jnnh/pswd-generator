@@ -19,7 +19,7 @@ var specialOptions = arrayFromLowToHigh(33,47).concat(arrayFromLowToHigh(58,64))
 //confirm password criteria
 var passwordCriteria = function(){
   var promptLength = prompt("How many characters would you like in your password?");
-  var promptLength= parseInt(promptLength);
+  promptLength= parseInt(promptLength);
     if (promptLength < 8 || promptLength > 128 || !promptLength){
       alert("Password length must be a number between 8 and 128. Please try again.");
       passwordCriteria();
@@ -80,6 +80,8 @@ var writePassword = function(password) {
 
 //Add event listener to generate button
 generateBtn.addEventListener("click", generatePassword);
+
+
 
 
 
